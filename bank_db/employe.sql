@@ -186,3 +186,20 @@ when salary >= 50000 then 'high'
 when salary >= 40000 and salary < 50000 then 'mid'
 else 'low'
 end as salary_cat from employee;
+
+
+-- print the employee bonus 10% with employee name and salary 
+
+select fname , salary ,
+case 
+when salary > 0 then round( salary / 10)
+end as bonus
+from employee;
+
+
+select 
+case 
+when salary >= 50000 then 'high'
+when salary >= 40000 and salary < 50000 then 'mid'
+else 'low'
+end as salary_cat, count(emp_id) from employee group by salary_cat 
