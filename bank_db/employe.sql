@@ -82,8 +82,61 @@ select distinct dept from employee;
 select * from employee order by fname desc;
 
 
+-- print the value whose name start from a we will use like then 
 
 
+select * from employee where fname like 'A%';
+-- start from A but if i write %a then the name who ends witth a
+
+--  %i% where i is in middle
+--  like '--' where 2 character 
+
+select * from employee where dept like '__';
+select * from employee where dept like '_a%';
+
+
+select count(fname) from employee;
+
+
+
+
+-- 
+select concat('hello','world');
+
+select  concat(fname,lname) from employee ;
+
+
+select  concat(fname,lname) as fullname from employee ;
+
+
+
+--printing multiple column you need to write as 
+select emp_id, concat(fname,lname) as fullname , dept from employee ;
+
+--concat with seperator
+select emp_id, concat(fname, ' ',lname) as fullname , dept from employee ;
+
+
+select emp_id, concat_ws('_',fname,lname) as fullname , dept from employee ;
+
+
+
+
+-- 1:Find Total no. of employees in database?
+-- 2: Find no. of employees in each department.
+-- 3: Find lowest salary paying
+-- 4: Find highest salary paying
+-- 5: Find total salary paying in finance department?
+-- 6: Average salary paying in each department
+
+select count(*) from employee;
+select dept, couunt(dept) from employee group by dept;
+select min(salary) from employee;
+select max(salary) from employee;
+--to display all field with max salary
+select * from employee order by salary desc limit 1;
+select sum(salary) from employee where dept='finance';
+select dept, avg(salary) from employee group by dept;
 
 
 
