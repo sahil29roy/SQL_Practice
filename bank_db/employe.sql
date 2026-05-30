@@ -178,3 +178,11 @@ case
 when salary > 50000 then 'high' 
 else 'low'
 end as salary_cat from employee;
+
+
+select fname, salary ,
+case 
+when salary >= 50000 then 'high' 
+when salary >= 40000 and salary < 50000 then 'mid'
+else 'low'
+end as salary_cat from employee;
