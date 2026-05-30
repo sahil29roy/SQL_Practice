@@ -47,3 +47,43 @@ values
 -- select setval('employee_emp_id_seq',1) //set value to 1 you have to set that manually in psql terminal if you manually entered the serial data and again you want to reset that data 
 
 --and to get the name \d employee to get the data of table copy the name 'employee_emp_id_seq' from there 
+
+select * from employee
+where emp_id = 5;
+
+
+select * from employee
+where emp_id = 5;
+
+select fname, emp_id, salary from employee
+where salary >= 50000;
+
+select * from employee 
+where dept = 'HR' or dept ='IT';
+
+select * from employee 
+where salary >= 53000 and dept ='IT';
+
+-- if you dont want to add multiple or then use in
+
+select * from employee 
+where dept in('HR','IT');
+
+select * from employee 
+where salary >= 50000 and salary < 55000;
+
+-- rater then using this we can use between 
+
+select * from employee
+where salary between 50000 and 55000;
+
+select distinct dept from employee;
+
+select * from employee order by fname desc;
+
+
+
+
+
+
+
