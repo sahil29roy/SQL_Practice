@@ -1,0 +1,71 @@
+create table customers(
+cust_id serial primary key,
+cust_name varchar(50) not null
+);
+
+create table orders (
+order_id serial primary key,
+order_date date not null,
+price decimal(8,2) not null,
+cust_id integer not null,
+foreign key(cust_id) references customers(cust_id)
+)
+
+select * from customers;
+select * from orders;
+
+drop table orders;
+-- shorthand
+create table orders(
+order_id serial primary key,
+order_date date not null,
+price decimal(8,2) not null,
+cust_id integer not null
+references customers(cust_id)
+);
+
+
+
+INSERT INTO customers (cust_name)
+VALUES
+('Raju'), ('Sham'), ('Paul'), ('Alex');
+
+
+INSERT INTO orders (order_date, cust_id, price)
+VALUES
+('2024-01-01', 1, 250.00),
+('2024-01-15', 1, 300.00),
+('2024-02-01', 2, 150.00),
+('2024-03-01', 3, 450.00),
+('2024-04-04', 2, 550.00);
+
+
+
+--cross join -> it display all data 
+
+select * from customers cross join orders;
+select * from orders cross join customers;
+
+
+--inner join we have to write conditions 
+-- we can declear it as allias like customers c
+select * from customers c
+inner join orders o
+on c.cust_id = o.cust_id;
+
+
+select cust_name from customers
+inner join orders
+on customers.cust_id = orders.cust_id
+group by cust_name;
+
+
+select c.cust_name ,count(o.order_id)from customers c
+inner join orders o
+on c.cust_id = o.cust_id
+group by cust_name;
+
+
+
+
+
