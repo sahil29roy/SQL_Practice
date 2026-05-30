@@ -140,3 +140,41 @@ select dept, avg(salary) from employee group by dept;
 
 
 
+--query inside query
+
+select * from employee where salary = (select max(salary) from employee);
+
+
+ -- add table
+alter table employee
+add column city varchar(50);
+
+-- delete table
+alter table employee 
+drop column city;
+
+-- rename table
+alter table employee
+rename to employees;
+
+
+alter table employee
+alter column fname
+set default 'unknown';
+
+
+alter table employee
+alter column fname
+drop default;
+
+alter table employee
+add column 
+ phone varchar(50) 
+ check (length(phone) >= 10);
+
+
+ select fname, salary ,
+case 
+when salary > 50000 then 'high' 
+else 'low'
+end as salary_cat from employee;

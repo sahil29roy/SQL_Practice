@@ -21,7 +21,7 @@ alter column first_name set not null;
 
 
 
-#department 
+-- #department 
 
 create table departments (
 	department_id serial primary key,
@@ -31,7 +31,7 @@ create table departments (
 );
 
 
-#course
+-- #course
 
 create table courses (
 course_id serial primary key ,
@@ -40,7 +40,7 @@ department_id int references departments(department_id),
 credits int check(credits > 0)
 );
 
-#enrollments
+-- #enrollments
 
 create table enrollments(
 enrollments_id serial primary key,
@@ -51,6 +51,8 @@ marks int check(marks between 0 and 100),
 grade varchar(2)
 
 );
+
+
 
 
 
