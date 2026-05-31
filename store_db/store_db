@@ -46,7 +46,7 @@ VALUES
 select * from customers cross join orders;
 select * from orders cross join customers;
 
-
+-- inner join gives the common data of left and right
 --inner join we have to write conditions 
 -- we can declear it as allias like customers c
 select * from customers c
@@ -60,10 +60,20 @@ on customers.cust_id = orders.cust_id
 group by cust_name;
 
 
-select c.cust_name ,count(o.order_id)from customers c
+select c.cust_name ,count(o.order_id), sum(o.price) from customers c
 inner join orders o
 on c.cust_id = o.cust_id
 group by cust_name;
+
+
+
+-- left join left all data +common data from left and right
+
+select * from customers c
+left join orders o
+on c.cust_id = o.cust_id;
+
+
 
 
 
